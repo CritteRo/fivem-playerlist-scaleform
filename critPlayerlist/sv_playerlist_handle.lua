@@ -17,11 +17,15 @@ end)
 
 RegisterNetEvent('playerJoining')
 AddEventHandler('playerJoining', function(arg1)
-    TriggerEvent('critPlayerlist.UpdateClient')
+    if handlePlayersInternally then
+        TriggerEvent('critPlayerlist.UpdateClient')
+    end
 end)
 
 AddEventHandler('playerDropped', function(source, reason)
-    TriggerEvent('critPlayerlist.UpdateClient')
+    if handlePlayersInternally then
+        TriggerEvent('critPlayerlist.UpdateClient')
+    end
 end)
 
 --[[
