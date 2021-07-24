@@ -15,11 +15,25 @@ AddEventHandler('critPlayerList:GetPlayers', function(_playerList)
     local count = 0
     players = {}
     for i,k in pairs(_playerList) do
-        players[count] = {id = k.id, name = k.name, crew = k.crew, rank = k.rank, rightText = k.rightText, showJP = k.showJP, txd = k.txd}
+        players[count] = {id = k.id, name = k.name, crew = k.crew, rank = k.rank, rightText = k.rightText, showJP = k.showJP, txd = 'CHAR_BLANK_ENTRY'}
         count = count + 1
     end
 end)
 
+--[[
+RegisterNetEvent('critPlayerList:UpdateTxdForPlayer')
+AddEventHandler('critPlayerList:UpdateTxdForPlayer', function(_playerid)
+    for i,k in pairs(players) do
+        if k.id == _playerid then
+            print('found him')
+            local ped = GetPlayerPed(_playerid)
+            print(ped)
+            k.txd = getHeadshot(ped)
+            break
+        end
+    end
+end)
+]]
 RegisterCommand('score', function(source, args)
     --txd = getHeadshot(PlayerPedId())
     scaleformViewId = scaleformViewId + 1

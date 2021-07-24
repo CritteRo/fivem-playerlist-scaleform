@@ -15,10 +15,6 @@ AddEventHandler('critPlayerlist.UpdateClient', function()
     TriggerClientEvent('critPlayerList:GetPlayers', -1, onlinePlayers)
 end)
 
-RegisterCommand('update', function(source, args)
-    TriggerEvent('critPlayerlist.UpdateClient')
-end)
-
 RegisterNetEvent('playerJoining')
 AddEventHandler('playerJoining', function(arg1)
     TriggerEvent('critPlayerlist.UpdateClient')
@@ -27,3 +23,9 @@ end)
 AddEventHandler('playerDropped', function(source, reason)
     TriggerEvent('critPlayerlist.UpdateClient')
 end)
+
+--[[
+AddEventHandler('playerEnteredScope', function(_data)
+    TriggerClientEvent('critPlayerList:UpdateTxdForPlayer', _data['for'], _data['player'])
+end)
+]]
