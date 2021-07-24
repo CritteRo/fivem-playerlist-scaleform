@@ -16,6 +16,9 @@ AddEventHandler('critPlayerList:GetPlayers', function(_playerList)
     players = {}
     for i,k in pairs(_playerList) do
         players[count] = {id = k.id, name = k.name, crew = k.crew, rank = k.rank, rightText = k.rightText, showJP = k.showJP, txd = 'CHAR_BLANK_ENTRY'}
+        if k.id == PlayerId() then
+            players[count].txd = getHeadshot(PlayerPedId())
+        end
         count = count + 1
     end
 end)
