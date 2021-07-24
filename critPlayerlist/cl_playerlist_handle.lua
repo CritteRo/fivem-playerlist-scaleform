@@ -37,7 +37,7 @@ AddEventHandler('critPlayerList:UpdateTxdForPlayer', function(_playerid)
     end
 end)
 ]]
-RegisterCommand('score', function(source, args)
+RegisterCommand('showplayerlist', function(source, args)
     --txd = getHeadshot(PlayerPedId())
     scaleformViewId = scaleformViewId + 1
     if players[0+(playersPerPage*(scaleformViewId-1))] ~= nil then
@@ -45,14 +45,16 @@ RegisterCommand('score', function(source, args)
         if showBigMap then
             SetBigmapActive(true, false)
         end
+        PlaySoundFrontend(-1, "NAV_LEFT_RIGHT", "HUD_FRONTEND_DEFAULT_SOUNDSET", true)
     else
         scaleformViewId = 0
         if showBigMap then
             SetBigmapActive(false, false)
         end
+        PlaySoundFrontend(-1, "BACK", "HUD_FRONTEND_DEFAULT_SOUNDSET", true )
     end
 end)
-RegisterKeyMapping('score', 'Toggle Scoreboard', 'keyboard', 'z')
+RegisterKeyMapping('showplayerlist', 'Toggle Scoreboard', 'keyboard', 'z')
 
 Citizen.CreateThread(function()
     while true do
