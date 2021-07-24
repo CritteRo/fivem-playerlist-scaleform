@@ -17,7 +17,8 @@ AddEventHandler('critPlayerList:GetPlayers', function(_playerList)
     for i,k in pairs(_playerList) do
         players[count] = {id = k.id, name = k.name, crew = k.crew, rank = k.rank, rightText = k.rightText, showJP = k.showJP, txd = 'CHAR_BLANK_ENTRY'}
         if k.id == PlayerId() then
-            players[count].txd = getHeadshot(PlayerPedId())
+            --players[count].txd = getHeadshot(PlayerPedId())
+            --print(players[count].txd)
         end
         count = count + 1
     end
@@ -45,7 +46,11 @@ RegisterCommand('showplayerlist', function(source, args)
         if showBigMap then
             SetBigmapActive(true, false)
         end
-        PlaySoundFrontend(-1, "NAV_LEFT_RIGHT", "HUD_FRONTEND_DEFAULT_SOUNDSET", true)
+        if scaleformViewId == 1 then
+            PlaySoundFrontend(-1, "SELECT", "HUD_FRONTEND_DEFAULT_SOUNDSET", true)
+        else
+            PlaySoundFrontend(-1, "NAV_LEFT_RIGHT", "HUD_FRONTEND_DEFAULT_SOUNDSET", true)
+        end
     else
         scaleformViewId = 0
         if showBigMap then
