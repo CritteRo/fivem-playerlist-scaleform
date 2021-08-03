@@ -1,5 +1,6 @@
 playersPerPage = 10
-rowColor = 2
+rowColor = 123
+rowColor2 = 116
 showBigMap = true
 handlePlayersInternally = false --When this is false, you will have to use your own scripts for playerlist handle. players table MUST RESPECT the template bellow.
 
