@@ -3,8 +3,8 @@ players = {
 }
 
 menuSettings = {
-    title = "FiveM | Players Online: ",
-    subtitle = "Page: "
+    title = "~y~FiveM~s~ | Players: ",
+    subtitle = ""
 }
 
 scaleformId = 0
@@ -42,7 +42,7 @@ RegisterCommand('showplayerlist', function(source, args)
     --txd = getHeadshot(PlayerPedId())
     scaleformViewId = scaleformViewId + 1
     if players[0+(playersPerPage*(scaleformViewId-1))] ~= nil then
-        scaleformId = generatePlayerList(menuSettings.title..#players+1, menuSettings.subtitle..scaleformViewId.." / "..(math.floor(#players / playersPerPage)+1), players, playersPerPage, scaleformViewId)
+        scaleformId = generatePlayerList(menuSettings.title..#players+1, "("..scaleformViewId.."/"..(math.floor(#players / playersPerPage)+1)..")", players, playersPerPage, scaleformViewId)
         if showBigMap then
             SetBigmapActive(true, false)
         end
