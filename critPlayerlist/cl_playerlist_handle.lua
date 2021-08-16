@@ -3,7 +3,7 @@ players = {
 }
 
 menuSettings = {
-    title = "~y~FiveM~s~ | Players: ",
+    title = "~y~FiveM~s~",
     subtitle = ""
 }
 
@@ -42,7 +42,7 @@ RegisterCommand('showplayerlist', function(source, args)
     --txd = getHeadshot(PlayerPedId())
     scaleformViewId = scaleformViewId + 1
     if players[0+(playersPerPage*(scaleformViewId-1))] ~= nil then
-        scaleformId = generatePlayerList(menuSettings.title..#players+1, "("..scaleformViewId.."/"..(math.floor(#players / playersPerPage)+1)..")", players, playersPerPage, scaleformViewId)
+        scaleformId = generatePlayerList(menuSettings.title.." | Players: "..#players+1, "("..scaleformViewId.."/"..(math.floor(#players / playersPerPage)+1)..")", players, playersPerPage, scaleformViewId)
         if showBigMap then
             SetBigmapActive(true, false)
         end
@@ -60,6 +60,11 @@ RegisterCommand('showplayerlist', function(source, args)
     end
 end)
 RegisterKeyMapping('showplayerlist', 'Toggle Scoreboard', 'keyboard', 'z')
+
+RegisterNetEvent('critPlayerList.ChangeTitle')
+AddEventHandler('critPlayerList.ChangeTitle', function(newTitle)
+    menuSettings.title = newTitle
+end)
 
 Citizen.CreateThread(function()
     while true do
