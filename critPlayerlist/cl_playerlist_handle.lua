@@ -66,6 +66,10 @@ AddEventHandler('critPlayerList.ChangeTitle', function(newTitle)
     menuSettings.title = newTitle
 end)
 
+function getPlayerlistView()
+    return scaleformViewId
+end
+
 Citizen.CreateThread(function()
     while true do
         if scaleformViewId ~= 0 then

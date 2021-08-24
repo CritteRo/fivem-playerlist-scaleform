@@ -13,3 +13,5 @@ server_scripts {
     'config.lua',
     'sv_playerlist_handle.lua'
 }
+
+export 'getPlayerlistView'
