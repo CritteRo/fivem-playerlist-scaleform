@@ -73,7 +73,7 @@ end
 Citizen.CreateThread(function()
     while true do
         if scaleformViewId ~= 0 then
-            DrawScaleformMovie(scaleformId, 0.17, 0.4, 0.34, 0.7, 255, 255, 255, 255)
+            DrawScaleformMovie(scaleformId, 0.14, 0.36, 0.3, 0.68, 255, 255, 255, 255)
         else
             Citizen.Wait(100)
         end
