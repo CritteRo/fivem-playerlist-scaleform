@@ -20,6 +20,9 @@ AddEventHandler('critPlayerList:GetPlayers', function(_playerList)
             --players[count].txd = getHeadshot(PlayerPedId())
             --print(players[count].txd)
         end
+        if k.color ~= nil then
+            players[count].color = k.color
+        end
         count = count + 1
     end
 end)

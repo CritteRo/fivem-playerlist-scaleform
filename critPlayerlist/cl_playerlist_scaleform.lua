@@ -32,10 +32,14 @@ function generatePlayerList(_title, _rightTitle, _players, _playersPerPage, _pag
             PushScaleformMovieMethodParameterInt(i)
             PushScaleformMovieMethodParameterString(_players[i+(_playersPerPage*condition)].rank) --rank
             PushScaleformMovieMethodParameterString(_players[i+(_playersPerPage*condition)].name) --playername
-            if PlayerId() == tonumber(_players[i+(_playersPerPage*condition)].id) then
-                PushScaleformMovieMethodParameterInt(rowColor2) --row color
+            if _players[i+(_playersPerPage*condition)].color ~= nil then
+                PushScaleformMovieMethodParameterInt(_players[i+(_playersPerPage*condition)].color) --row color
             else
-                PushScaleformMovieMethodParameterInt(rowColor) --row color
+                if PlayerId() == tonumber(_players[i+(_playersPerPage*condition)].id) then
+                    PushScaleformMovieMethodParameterInt(rowColor2) --row color
+                else
+                    PushScaleformMovieMethodParameterInt(rowColor) --row color
+                end
             end
             PushScaleformMovieMethodParameterInt(65) --right icon
             PushScaleformMovieMethodParameterInt(tonumber(_players[i+(_playersPerPage*condition)].id)) --text in place of mugshot
