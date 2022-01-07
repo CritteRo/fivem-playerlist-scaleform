@@ -83,3 +83,12 @@ Citizen.CreateThread(function()
         Citizen.Wait(1)
     end
 end)
+
+function IsScoreboardOpen()
+    local retval = false
+    if scaleformViewId ~= 0 then
+        retval = true
+    end
+
+    return retval
+end

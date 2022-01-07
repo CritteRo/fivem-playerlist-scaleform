@@ -15,3 +15,4 @@ server_scripts {
 }
 
 export 'getPlayerlistView'
+export 'IsScoreboardOpen'
