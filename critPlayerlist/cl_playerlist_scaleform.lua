@@ -42,7 +42,7 @@ function generatePlayerList(_title, _rightTitle, _players, _playersPerPage, _pag
                 end
             end
             PushScaleformMovieMethodParameterInt(65) --right icon
-            PushScaleformMovieMethodParameterInt(tonumber(_players[i+(_playersPerPage*condition)].id)) --text in place of mugshot
+            PushScaleformMovieMethodParameterString(_players[i+(_playersPerPage*condition)].id) --text in place of mugshot
             PushScaleformMovieMethodParameterString(_players[i+(_playersPerPage*condition)].rightText) --text next to rank
             if _players[i+(_playersPerPage*condition)].crew ~= "" then
                 PushScaleformMovieMethodParameterString("..+".._players[i+(_playersPerPage*condition)].crew) --crew
