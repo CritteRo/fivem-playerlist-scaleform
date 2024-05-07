@@ -75,6 +75,9 @@ end
 Citizen.CreateThread(function()
     while true do
         if scaleformViewId ~= 0 then
+            if hideHelpTextHud == true then
+                HideHudComponentThisFrame(10)
+            end
             DrawScaleformMovie(scaleformId, 0.14, 0.36, 0.3, 0.68, 255, 255, 255, 255)
         else
             Citizen.Wait(100)
